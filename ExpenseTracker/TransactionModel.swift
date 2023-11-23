@@ -12,13 +12,16 @@ struct Transaction: Identifiable{
     let id: Int
     let date: String
     let institution: String
-    let account: Double
+    let account: String
+    var merchant: String
+    let amount: Double
     let type: TransactionType.RawValue
-    let CatagoryId: Int
+    let categoryId: Int
+    let category: String
     let isPending: Bool
-    let isTransfer: Bool
-    let isExpense: Bool
-    let isEdited: Bool
+    var isTransfer: Bool
+    var isExpense: Bool
+    var isEdited: Bool
     
     
     
