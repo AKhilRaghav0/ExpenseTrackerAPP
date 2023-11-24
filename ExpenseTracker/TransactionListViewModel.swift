@@ -24,6 +24,20 @@ final class TransactionListViewModel: ObservableObject {
                 }
                 return data
             }
+            .decode(type: [Transaction].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error Fetching Transactions", error.localizedDescription)
+                case .finished:
+                    print("Finished fetching Transactions")
+                
+                }
+            } receiveValue: { [weak self] result in
+                self?.transaction = result
+            }
+
         
         
     }
