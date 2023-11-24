@@ -23,6 +23,15 @@ struct Transaction: Identifiable{
     var isExpense: Bool
     var isEdited: Bool
     
+    var dateParsed: Date {
+        date.dateParsed()
+    }
+    
+    var signedAmount : Double {
+        return type == TransactionType.credit.rawValue ? amount : -amount
+        
+    }
+    
     
     
 }
