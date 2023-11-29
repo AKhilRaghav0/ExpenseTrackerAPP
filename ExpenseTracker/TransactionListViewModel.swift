@@ -20,7 +20,6 @@ final class TransactionListViewModel: ObservableObject {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     dump(response)
                     throw URLError(.badServerResponse)
-                    
                 }
                 return data
             }
@@ -32,13 +31,10 @@ final class TransactionListViewModel: ObservableObject {
                     print("Error Fetching Transactions", error.localizedDescription)
                 case .finished:
                     print("Finished fetching Transactions")
-                
                 }
             } receiveValue: { [weak self] result in
                 self?.transaction = result
+                dump(self?.transaction)
             }
-
-        
-        
     }
 }
