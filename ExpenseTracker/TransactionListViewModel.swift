@@ -36,5 +36,6 @@ final class TransactionListViewModel: ObservableObject {
                 self?.transaction = result
                 dump(self?.transaction)
             }
+            .store(in: &canellables)
     }
 }
